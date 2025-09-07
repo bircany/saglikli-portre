@@ -1,42 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Nutritionist Portfolio Design System - Healthy & Professional */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand colors - Health & Nature inspired */
+    --background: 46 20% 99%;
+    --foreground: 158 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 158 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 158 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary green - Professional health */
+    --primary: 122 39% 49%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Hero & CTA variants */
+    --primary-light: 122 35% 85%;
+    --primary-dark: 122 39% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary cream tones */
+    --secondary: 46 40% 95%;
+    --secondary-foreground: 158 25% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 46 30% 93%;
+    --muted-foreground: 158 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 122 35% 85%;
+    --accent-foreground: 158 25% 15%;
+    
+    /* Success states */
+    --success: 122 39% 49%;
+    --success-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Soft borders for clean health aesthetic */
+    --border: 46 25% 88%;
+    --input: 46 25% 88%;
+    --ring: 122 39% 49%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+    
+    /* Custom health gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--secondary)) 100%);
+    
+    /* Custom shadows for depth */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(var(--primary) / 0.15);
+    
+    /* Professional transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +123,51 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Hero section styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  /* Professional button variants */
+  .btn-cta {
+    @apply bg-primary text-primary-foreground hover:bg-primary-dark shadow-soft transition-all duration-300 rounded-2xl px-8 py-4 font-medium;
+  }
+  
+  .btn-outline-cta {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground shadow-soft transition-all duration-300 rounded-2xl px-8 py-4 font-medium;
+  }
+  
+  /* Card styles */
+  .card-professional {
+    @apply bg-card rounded-2xl p-6 shadow-card border border-border/50;
+  }
+  
+  /* Smooth animations */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

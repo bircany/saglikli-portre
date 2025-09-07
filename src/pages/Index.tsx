@@ -1,12 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Experience from "@/components/Experience";
+import Contact from "@/components/Contact";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Experience />
+      <Contact />
+      
+      {/* Footer */}
+      <footer className="bg-foreground text-background py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm">
+            © 2024 Diyetisyen Ayşe Kaya. Tüm hakları saklıdır.
+          </p>
+          <p className="text-xs mt-2 opacity-80">
+            Sağlıklı yaşam için kişiselleştirilmiş beslenme çözümleri
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
