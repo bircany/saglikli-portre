@@ -42,20 +42,20 @@ const Contact = () => {
   return (
     <section id="contact" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             İletişim
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Sağlıklı yaşam yolculuğunuza başlamak için benimle iletişime geçin. 
+            Sağlıklı yaşam yolculuğunuza başlamak için benimle iletişime geçin.
             Size en uygun beslenme programını birlikte oluşturalım.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          
+
           {/* Contact Form */}
           <Card className="card-professional">
             <CardHeader>
@@ -71,50 +71,50 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">Ad</Label>
-                    <Input 
-                      id="firstName" 
-                      placeholder="Adınız" 
-                      required 
+                    <Input
+                      id="firstName"
+                      placeholder="Adınız"
+                      required
                       className="mt-1"
                     />
                   </div>
                   <div>
                     <Label htmlFor="lastName">Soyad</Label>
-                    <Input 
-                      id="lastName" 
-                      placeholder="Soyadınız" 
-                      required 
+                    <Input
+                      id="lastName"
+                      placeholder="Soyadınız"
+                      required
                       className="mt-1"
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email">E-posta</Label>
-                  <Input 
-                    id="email" 
-                    type="email" 
-                    placeholder="ornek@email.com" 
-                    required 
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="ornek@email.com"
+                    required
                     className="mt-1"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="phone">Telefon</Label>
-                  <Input 
-                    id="phone" 
-                    type="tel" 
-                    placeholder="+90 5xx xxx xx xx" 
-                    required 
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="+90 5xx xxx xx xx"
+                    required
                     className="mt-1"
                   />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="service">İlgilendiğiniz Hizmet</Label>
-                  <select 
-                    id="service" 
+                  <select
+                    id="service"
                     className="mt-1 w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
                     required
                   >
@@ -127,17 +127,17 @@ const Contact = () => {
                     <option value="diger">Diğer</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="message">Mesaj</Label>
-                  <Textarea 
-                    id="message" 
+                  <Textarea
+                    id="message"
                     placeholder="Durumunuz ve hedefleriniz hakkında kısaca bilgi verin..."
                     rows={4}
                     className="mt-1"
                   />
                 </div>
-                
+
                 <Button type="submit" size="lg" className="w-full btn-cta">
                   <Send className="w-5 h-5 mr-2" />
                   Randevu Talep Et
@@ -148,7 +148,7 @@ const Contact = () => {
 
           {/* Contact Info & Map */}
           <div className="space-y-8">
-            
+
             {/* Contact Information */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {contactInfo.map((info, index) => (
@@ -180,9 +180,9 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="w-full btn-outline-cta justify-start"
                   >
                     <Phone className="w-5 h-5 mr-3" />
@@ -191,10 +191,10 @@ const Contact = () => {
                       <div className="text-sm text-muted-foreground">+90 532 123 4567</div>
                     </div>
                   </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="w-full btn-outline-cta justify-start"
                   >
                     <MessageCircle className="w-5 h-5 mr-3" />
@@ -203,10 +203,10 @@ const Contact = () => {
                       <div className="text-sm text-muted-foreground">Anında mesajlaş</div>
                     </div>
                   </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    size="lg" 
+
+                  <Button
+                    variant="outline"
+                    size="lg"
                     className="w-full btn-outline-cta justify-start"
                   >
                     <Mail className="w-5 h-5 mr-3" />
@@ -227,12 +227,18 @@ const Contact = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="aspect-video bg-muted rounded-xl flex items-center justify-center mb-4">
-                  <div className="text-center text-muted-foreground">
-                    <MapPin className="w-12 h-12 mx-auto mb-2" />
-                    <p>Google Maps</p>
-                    <p className="text-sm">Harita burada görünecek</p>
-                  </div>
+                <div className="aspect-video w-full bg-muted rounded-xl relative overflow-hidden group mb-4">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12037.810574744765!2d28.985091764359055!3d41.04505977929705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zTmnFn2FudGHFn8SxLCDFnmTFn2xpL8Sxc3RhbmJ1bA!5e0!3m2!1str!2str!4v1709907604620!5m2!1str!2str"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                    title="Ofis Konumu"
+                  ></iframe>
                 </div>
                 <div className="text-center">
                   <p className="font-medium text-foreground mb-1">
@@ -254,7 +260,7 @@ const Contact = () => {
             Sağlıklı Yaşama İlk Adım
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Hedeflerinize ulaşmak için kişiselleştirilmiş beslenme planınızı 
+            Hedeflerinize ulaşmak için kişiselleştirilmiş beslenme planınızı
             oluşturmaya bugün başlayalım.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
