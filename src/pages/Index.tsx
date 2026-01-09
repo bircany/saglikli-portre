@@ -14,7 +14,7 @@ const Index = () => {
       <Services />
       <Experience />
       <Contact />
-      
+
       {/* Footer */}
       <footer className="bg-foreground text-background py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -23,6 +23,9 @@ const Index = () => {
           </p>
           <p className="text-xs mt-2 opacity-80">
             Sağlıklı yaşam için kişiselleştirilmiş beslenme çözümleri
+          </p>
+          <p className="text-xs mt-4 text-muted-foreground/60">
+            Present by SoftArtStudio
           </p>
         </div>
       </footer>

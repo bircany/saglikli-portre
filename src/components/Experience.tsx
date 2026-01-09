@@ -58,14 +58,14 @@ const Experience = () => {
   return (
     <section id="experience" className="py-20 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Deneyim & Referanslar
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            10 yıllık profesyonel deneyimim boyunca edindiğim bilgi birikimi 
+            10 yıllık profesyonel deneyimim boyunca edindiğim bilgi birikimi
             ve uzman sertifikalarımla size en iyi hizmeti sunuyorum.
           </p>
         </div>
@@ -83,10 +83,12 @@ const Experience = () => {
               <p className="text-muted-foreground mb-6">
                 Tam eğitim geçmişim, deneyimim ve referanslarım için detaylı CV'mi inceleyebilirsiniz.
               </p>
-              <Button size="lg" className="btn-cta">
-                <Download className="w-5 h-5 mr-2" />
-                PDF Olarak İndir
-              </Button>
+              <a href="/Ayse-Kaya-CV.pdf" download="Ayse-Kaya-CV.pdf">
+                <Button size="lg" className="btn-cta">
+                  <Download className="w-5 h-5 mr-2" />
+                  PDF Olarak İndir
+                </Button>
+              </a>
             </CardContent>
           </Card>
         </div>
@@ -130,7 +132,7 @@ const Experience = () => {
 
         {/* Certifications & Publications Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
+
           {/* Certifications */}
           <Card className="card-professional">
             <CardHeader>

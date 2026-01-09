@@ -41,14 +41,12 @@ const Navbar = () => {
 
           {/* CTA Buttons - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" size="sm" className="btn-outline-cta !px-4 !py-2">
-              <Download className="w-4 h-4 mr-2" />
-              CV İndir
-            </Button>
-            <Button size="sm" className="btn-cta !px-4 !py-2">
-              <Phone className="w-4 h-4 mr-2" />
-              Randevu Al
-            </Button>
+            <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer">
+              <Button size="sm" className="btn-cta !px-4 !py-2">
+                <Phone className="w-4 h-4 mr-2" />
+                Randevu Al
+              </Button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -78,14 +76,12 @@ const Navbar = () => {
               </a>
             ))}
             <div className="flex flex-col space-y-2 px-3 pt-4">
-              <Button variant="outline" size="sm" className="btn-outline-cta">
-                <Download className="w-4 h-4 mr-2" />
-                CV İndir
-              </Button>
-              <Button size="sm" className="btn-cta">
-                <Phone className="w-4 h-4 mr-2" />
-                Randevu Al
-              </Button>
+              <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer" className="w-full">
+                <Button size="sm" className="btn-cta w-full">
+                  <Phone className="w-4 h-4 mr-2" />
+                  Randevu Al
+                </Button>
+              </a>
             </div>
           </div>
         </div>

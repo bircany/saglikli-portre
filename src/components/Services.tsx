@@ -1,4 +1,4 @@
-import { Scale, Dumbbell, Baby, Globe, Heart, Users, Phone } from 'lucide-react';
+import { Scale, Dumbbell, Baby, Globe, Heart, Users, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 
@@ -45,14 +45,14 @@ const Services = () => {
   return (
     <section id="services" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             Hizmetlerim
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Her yaştan danışanıma özel, bilimsel temelli beslenme programları hazırlıyor, 
+            Her yaştan danışanıma özel, bilimsel temelli beslenme programları hazırlıyor,
             sağlıklı yaşam tarzı alışkanlıkları kazanmanızda size rehberlik ediyorum.
           </p>
         </div>
@@ -95,17 +95,16 @@ const Services = () => {
             Hangi Hizmete İhtiyacınız Var?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Size en uygun beslenme programını belirlemek için ücretsiz ön değerlendirme 
+            Size en uygun beslenme programını belirlemek için ücretsiz ön değerlendirme
             randevusu alabilirsiniz.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-cta">
-              <Phone className="w-5 h-5 mr-2" />
-              Ücretsiz Konsültasyon
-            </Button>
-            <Button variant="outline" size="lg" className="btn-outline-cta">
-              WhatsApp İletişim
-            </Button>
+            <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg" className="btn-outline-cta">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                WhatsApp İletişim
+              </Button>
+            </a>
           </div>
         </div>
       </div>

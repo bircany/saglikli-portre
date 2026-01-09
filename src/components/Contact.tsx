@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, Send, MessageCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,23 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
   const contactInfo = [
     {
       icon: Phone,
@@ -35,12 +53,21 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic will be added here
-    console.log('Form submitted');
+    const subject = `Randevu Talebi: ${formData.service || 'Genel'}`;
+    const body = `Ad: ${formData.firstName}
+Soyad: ${formData.lastName}
+Email: ${formData.email}
+Telefon: ${formData.phone}
+Hizmet: ${formData.service}
+
+Mesaj:
+${formData.message}`;
+
+    window.location.href = `mailto:info@aysekaya.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -76,6 +103,8 @@ const Contact = () => {
                       placeholder="Adınız"
                       required
                       className="mt-1"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                     />
                   </div>
                   <div>
@@ -85,6 +114,8 @@ const Contact = () => {
                       placeholder="Soyadınız"
                       required
                       className="mt-1"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                     />
                   </div>
                 </div>
@@ -97,6 +128,8 @@ const Contact = () => {
                     placeholder="ornek@email.com"
                     required
                     className="mt-1"
+                    value={formData.email}
+                    onChange={handleInputChange}
                   />
                 </div>
 
@@ -108,6 +141,8 @@ const Contact = () => {
                     placeholder="+90 5xx xxx xx xx"
                     required
                     className="mt-1"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                   />
                 </div>
 
@@ -117,6 +152,8 @@ const Contact = () => {
                     id="service"
                     className="mt-1 w-full px-3 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
                     required
+                    value={formData.service}
+                    onChange={handleInputChange}
                   >
                     <option value="">Bir hizmet seçin</option>
                     <option value="kilo-yonetimi">Kilo Yönetimi</option>
@@ -135,6 +172,8 @@ const Contact = () => {
                     placeholder="Durumunuz ve hedefleriniz hakkında kısaca bilgi verin..."
                     rows={4}
                     className="mt-1"
+                    value={formData.message}
+                    onChange={handleInputChange}
                   />
                 </div>
 
@@ -180,78 +219,86 @@ const Contact = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full btn-outline-cta justify-start"
-                  >
-                    <Phone className="w-5 h-5 mr-3" />
-                    <div className="text-left">
-                      <div className="font-medium">Hemen Ara</div>
-                      <div className="text-sm text-muted-foreground">+90 532 123 4567</div>
-                    </div>
-                  </Button>
+                  <a href="tel:+905321234567" className="block">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full btn-outline-cta justify-start"
+                    >
+                      <Phone className="w-5 h-5 mr-3" />
+                      <div className="text-left">
+                        <div className="font-medium">Hemen Ara</div>
+                        <div className="text-sm text-muted-foreground">+90 532 123 4567</div>
+                      </div>
+                    </Button>
+                  </a>
 
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full btn-outline-cta justify-start"
-                  >
-                    <MessageCircle className="w-5 h-5 mr-3" />
-                    <div className="text-left">
-                      <div className="font-medium">WhatsApp</div>
-                      <div className="text-sm text-muted-foreground">Anında mesajlaş</div>
-                    </div>
-                  </Button>
+                  <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer" className="block">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full btn-outline-cta justify-start"
+                    >
+                      <MessageCircle className="w-5 h-5 mr-3" />
+                      <div className="text-left">
+                        <div className="font-medium">WhatsApp</div>
+                        <div className="text-sm text-muted-foreground">Anında mesajlaş</div>
+                      </div>
+                    </Button>
+                  </a>
 
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full btn-outline-cta justify-start"
-                  >
-                    <Mail className="w-5 h-5 mr-3" />
-                    <div className="text-left">
-                      <div className="font-medium">E-posta Gönder</div>
-                      <div className="text-sm text-muted-foreground">info@aysekaya.com</div>
-                    </div>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Office Location */}
-            <Card className="card-professional">
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">
-                  Ofis Konumu
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="aspect-video w-full bg-muted rounded-xl relative overflow-hidden group mb-4">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12037.810574744765!2d28.985091764359055!3d41.04505977929705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zTmnFn2FudGHFn8SxLCDFnmTFn2xpL8Sxc3RhbmJ1bA!5e0!3m2!1str!2str!4v1709907604620!5m2!1str!2str"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
-                    title="Ofis Konumu"
-                  ></iframe>
-                </div>
-                <div className="text-center">
-                  <p className="font-medium text-foreground mb-1">
-                    Nişantaşı Beslenme Merkezi
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    Teşvikiye Cad. No:45 Kat:3<br />
-                    Nişantaşı, İstanbul 34365
-                  </p>
+                  <a href="mailto:info@aysekaya.com" className="block">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full btn-outline-cta justify-start"
+                    >
+                      <Mail className="w-5 h-5 mr-3" />
+                      <div className="text-left">
+                        <div className="font-medium">E-posta Gönder</div>
+                        <div className="text-sm text-muted-foreground">info@aysekaya.com</div>
+                      </div>
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
           </div>
+        </div>
+
+        {/* Office Location - Full Width */}
+        <div className="mt-12">
+          <Card className="card-professional">
+            <CardHeader>
+              <CardTitle className="text-xl text-foreground">
+                Ofis Konumu
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="aspect-[21/9] w-full bg-muted rounded-xl relative overflow-hidden group mb-4">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12037.810574744765!2d28.985091764359055!3d41.04505977929705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab7650656bd63%3A0x8ca058b28c20b6c3!2zTmnFn2FudGHFn8SxLCDFnmTFn2xpL8Sxc3RhbmJ1bA!5e0!3m2!1str!2str!4v1709907604620!5m2!1str!2str"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                  title="Ofis Konumu"
+                ></iframe>
+              </div>
+              <div className="text-center">
+                <p className="font-medium text-foreground mb-1">
+                  Nişantaşı Beslenme Merkezi
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  Teşvikiye Cad. No:45 Kat:3<br />
+                  Nişantaşı, İstanbul 34365
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Bottom CTA */}
@@ -264,14 +311,18 @@ const Contact = () => {
             oluşturmaya bugün başlayalım.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="btn-cta">
-              <Phone className="w-5 h-5 mr-2" />
-              Ücretsiz Konsültasyon
-            </Button>
-            <Button variant="outline" size="lg" className="btn-outline-cta">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              WhatsApp Randevu
-            </Button>
+            <a href="tel:+905321234567">
+              <Button size="lg" className="btn-cta">
+                <Phone className="w-5 h-5 mr-2" />
+                Ücretsiz Konsültasyon
+              </Button>
+            </a>
+            <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="lg" className="btn-outline-cta">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                WhatsApp Randevu
+              </Button>
+            </a>
           </div>
         </div>
       </div>

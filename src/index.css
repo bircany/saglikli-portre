@@ -30,9 +30,9 @@
     --secondary: 35 30% 96%;
     --secondary-foreground: 150 40% 15%;
 
-    /* Accent - Vibrant Citrus or Berry */
-    --accent: 12 85% 65%;
-    /* Soft Coral/Salmon for healthy pop */
+    /* Accent - Fresh Blue (Replacing Reddish) */
+    --accent: 210 70% 60%;
+    /* Fresh Blue */
     --accent-foreground: 0 0% 100%;
 
     --muted: 100 10% 96%;

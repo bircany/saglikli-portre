@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center hero-gradient">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Content */}
@@ -25,14 +25,18 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="btn-cta text-lg px-8 py-4">
-                <Phone className="w-5 h-5 mr-2" />
-                Randevu Al
-              </Button>
-              <Button variant="outline" size="lg" className="btn-outline-cta text-lg px-8 py-4">
-                <Download className="w-5 h-5 mr-2" />
-                CV İndir
-              </Button>
+              <a href="https://wa.me/905321234567" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="btn-cta text-lg px-8 py-4">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Randevu Al
+                </Button>
+              </a>
+              <a href="/Ayse-Kaya-CV.pdf" download="Ayse-Kaya-CV.pdf">
+                <Button variant="outline" size="lg" className="btn-outline-cta text-lg px-8 py-4">
+                  <Download className="w-5 h-5 mr-2" />
+                  CV İndir
+                </Button>
+              </a>
             </div>
 
             <div className="mt-12 grid grid-cols-3 gap-6 text-center lg:text-left">
